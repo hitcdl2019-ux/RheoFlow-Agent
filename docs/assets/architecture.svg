@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="680" viewBox="0 0 1180 680" role="img" aria-labelledby="title desc">
+  <title id="title">RheoFlow-Agent Architecture</title>
+  <desc id="desc">Architecture diagram showing intake, case target locking, template import or generation, validation, OpenFOAM execution, post-processing, artifact synchronization, and case evolution across v9 RheoTool and v10 Foundation runtime channels.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7fafc; }
+      .panel { fill: #ffffff; stroke: #d0d7de; stroke-width: 1.5; rx: 18; }
+      .title { font: 700 28px Arial, Helvetica, sans-serif; fill: #0f172a; }
+      .subtitle { font: 400 15px Arial, Helvetica, sans-serif; fill: #475569; }
+      .label { font: 700 16px Arial, Helvetica, sans-serif; fill: #0f172a; }
+      .small { font: 400 13px Arial, Helvetica, sans-serif; fill: #334155; }
+      .tiny { font: 400 12px Arial, Helvetica, sans-serif; fill: #475569; }
+      .box { fill: #ffffff; stroke: #94a3b8; stroke-width: 1.4; rx: 12; }
+      .box-blue { fill: #eff6ff; stroke: #3b82f6; }
+      .box-green { fill: #ecfdf5; stroke: #10b981; }
+      .box-orange { fill: #fff7ed; stroke: #f97316; }
+      .box-purple { fill: #f5f3ff; stroke: #8b5cf6; }
+      .box-red { fill: #fef2f2; stroke: #ef4444; }
+      .channel-v9 { fill: #eef2ff; stroke: #6366f1; stroke-width: 1.4; rx: 14; }
+      .channel-v10 { fill: #f0fdf4; stroke: #22c55e; stroke-width: 1.4; rx: 14; }
+      .artifact { fill: #f8fafc; stroke: #64748b; stroke-width: 1.2; rx: 10; }
+      .arrow { stroke: #475569; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+      .arrow-soft { stroke: #94a3b8; stroke-width: 1.7; fill: none; marker-end: url(#arrow-soft); stroke-dasharray: 6 5; }
+      .badge { fill: #0f172a; rx: 12; }
+      .badge-text { font: 700 12px Arial, Helvetica, sans-serif; fill: #ffffff; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569" />
+    </marker>
+    <marker id="arrow-soft" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8" />
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1180" height="680" />
+
+  <text class="title" x="40" y="48">RheoFlow-Agent Architecture</text>
+  <text class="subtitle" x="40" y="74">Validation-driven OpenFOAM/RheoTool workflow for rheology CFD, reproducible templates, post-processing, and case assets.</text>
+
+  <rect class="panel" x="28" y="100" width="1124" height="230" />
+  <text class="label" x="50" y="132">Agent workflow</text>
+
+  <rect class="box box-blue" x="50" y="160" width="135" height="95" />
+  <text class="label" x="70" y="190">0. Environment</text>
+  <text class="small" x="70" y="214">runtime check</text>
+  <text class="small" x="70" y="234">provider check</text>
+
+  <rect class="box box-blue" x="215" y="160" width="135" height="95" />
+  <text class="label" x="238" y="190">1. Intake</text>
+  <text class="small" x="235" y="214">business request</text>
+  <text class="small" x="235" y="234">clarify / ready</text>
+
+  <rect class="box box-purple" x="380" y="160" width="135" height="95" />
+  <text class="label" x="405" y="190">2. CaseTarget</text>
+  <text class="small" x="405" y="214">channel lock</text>
+  <text class="small" x="405" y="234">solver lock</text>
+
+  <rect class="box box-purple" x="545" y="160" width="150" height="95" />
+  <text class="label" x="566" y="190">3. Case build</text>
+  <text class="small" x="565" y="214">template import</text>
+  <text class="small" x="565" y="234">or generation</text>
+
+  <rect class="box box-orange" x="725" y="160" width="145" height="95" />
+  <text class="label" x="748" y="190">4. Validate</text>
+  <text class="small" x="748" y="214">schema</text>
+  <text class="small" x="748" y="234">manifest</text>
+
+  <rect class="box box-green" x="900" y="160" width="145" height="95" />
+  <text class="label" x="920" y="190">5. Execute</text>
+  <text class="small" x="920" y="214">OpenFOAM</text>
+  <text class="small" x="920" y="234">RheoTool</text>
+
+  <path class="arrow" d="M185 207 L214 207" />
+  <path class="arrow" d="M350 207 L379 207" />
+  <path class="arrow" d="M515 207 L544 207" />
+  <path class="arrow" d="M695 207 L724 207" />
+  <path class="arrow" d="M870 207 L899 207" />
+
+  <rect class="box box-green" x="300" y="280" width="165" height="35" />
+  <text class="small" x="326" y="303">6. Result explanation</text>
+  <rect class="box box-green" x="500" y="280" width="165" height="35" />
+  <text class="small" x="524" y="303">7. Artifact sync</text>
+  <rect class="box box-green" x="700" y="280" width="165" height="35" />
+  <text class="small" x="725" y="303">Case evolution</text>
+  <path class="arrow-soft" d="M972 255 C972 305 450 335 382 315" />
+  <path class="arrow" d="M465 297 L499 297" />
+  <path class="arrow" d="M665 297 L699 297" />
+
+  <rect class="panel" x="28" y="360" width="545" height="230" />
+  <text class="label" x="50" y="392">Runtime channel A: v9-rheotool</text>
+  <text class="subtitle" x="50" y="416">OpenFOAM Foundation v9 + RheoTool for rheology / viscoelastic workflows</text>
+
+  <rect class="channel-v9" x="55" y="445" width="150" height="92" />
+  <text class="label" x="83" y="474">rheoFoam</text>
+  <text class="tiny" x="77" y="498">single-phase</text>
+  <text class="tiny" x="77" y="516">viscoelastic flow</text>
+
+  <rect class="channel-v9" x="230" y="445" width="150" height="92" />
+  <text class="label" x="257" y="474">rheoInterFoam</text>
+  <text class="tiny" x="254" y="498">two-phase</text>
+  <text class="tiny" x="254" y="516">rheological surface</text>
+
+  <rect class="channel-v9" x="405" y="445" width="130" height="92" />
+  <text class="label" x="430" y="474">rheoTestFoam</text>
+  <text class="tiny" x="432" y="498">material</text>
+  <text class="tiny" x="432" y="516">functions</text>
+
+  <text class="tiny" x="58" y="564">Examples: Oldroyd-B channel, cylinder, contraction, cross-slot, DieSwell, impacting drop.</text>
+
+  <rect class="panel" x="607" y="360" width="545" height="230" />
+  <text class="label" x="630" y="392">Runtime channel B: v10-foundation</text>
+  <text class="subtitle" x="630" y="416">OpenFOAM Foundation v10 for standard Newtonian tutorial baselines</text>
+
+  <rect class="channel-v10" x="635" y="445" width="125" height="92" />
+  <text class="label" x="670" y="474">icoFoam</text>
+  <text class="tiny" x="664" y="498">cavity</text>
+  <text class="tiny" x="664" y="516">transient</text>
+
+  <rect class="channel-v10" x="780" y="445" width="125" height="92" />
+  <text class="label" x="812" y="474">simpleFoam</text>
+  <text class="tiny" x="809" y="498">steady</text>
+  <text class="tiny" x="809" y="516">incompressible</text>
+
+  <rect class="channel-v10" x="925" y="445" width="125" height="92" />
+  <text class="label" x="957" y="474">interFoam</text>
+  <text class="tiny" x="954" y="498">Newtonian</text>
+  <text class="tiny" x="954" y="516">free surface</text>
+
+  <text class="tiny" x="636" y="564">Examples: cavity, pitzDaily, damBreak, capillaryRise, wave, airFoil2D, shockTube.</text>
+
+  <rect class="panel" x="210" y="610" width="760" height="48" />
+  <text class="small" x="236" y="640">Outputs: workflow.log · manifest.json · solver logs · POSTPROCESS_REPORT.json · plots · FINAL_REPORT.docx · reusable case metadata</text>
+</svg>

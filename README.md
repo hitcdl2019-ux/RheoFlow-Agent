@@ -1,5 +1,10 @@
 # RheoFlow-Agent
 
+
+<p align="center">
+  <img src="docs/assets/architecture.svg" alt="RheoFlow-Agent architecture" width="900">
+</p>
+
 RheoFlow-Agent is an AI-assisted OpenFOAM/RheoTool workflow framework focused on rheology CFD simulation, validated templates, automated execution, post-processing, and case-asset evolution.
 
 The project is designed around reproducible CFD workflows rather than unconstrained file generation. It emphasizes certified templates, explicit intake validation, solver/channel routing, manifest checks, OpenFOAM execution, and engineering-style result reporting.

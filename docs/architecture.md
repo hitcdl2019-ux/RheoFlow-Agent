@@ -1,5 +1,8 @@
 # Architecture
 
+
+![RheoFlow-Agent architecture](assets/architecture.svg)
+
 RheoFlow-Agent is organized as a validation-driven workflow around OpenFOAM and RheoTool. The project favors reproducible template import and explicit checks over unconstrained case-file generation.
 
 ## Seven-stage workflow
