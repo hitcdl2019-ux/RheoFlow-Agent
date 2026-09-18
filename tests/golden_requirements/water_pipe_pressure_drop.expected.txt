@@ -1,0 +1,60 @@
+# Foam-Agent User Requirement
+
+## Business Problem
+Compute steady pressure drop for low-Re water flow in a circular micro pipe.
+
+## Material and Phases
+- material: water
+- phases: single liquid phase
+- observed behavior: Newtonian
+- material knowledge source: literature_typical
+- user confirmed assumptions: user approved standard water properties at 20C
+
+## Fluid / Material Properties
+- density: rho=1000 kg/m3
+- dynamic_viscosity: not explicitly used
+- kinematic_viscosity: nu=1e-6 m2/s
+- property source: literature_typical
+- source reference: standard water properties at 20C
+- user confirmed property assumptions: yes
+
+## Geometry
+- geometry type: pipe
+- dimensions: diameter=0.001 m, length=0.1 m
+- mesh source: default certified coarse mesh
+
+## Flow Conditions
+- steady_or_transient: steady
+- inlet: velocity=0.001 m/s
+- outlet: fixed pressure, gauge pressure=0
+- wall: no-slip
+- free_surface: no
+- turbulence: laminar, Re=1
+- initial_condition: uniform velocity, default
+
+## Rheology
+- behavior: Newtonian
+- model: Newtonian
+- parameters: nu=1e-6 m2/s, rho=1000 kg/m3
+- parameter source: literature_typical
+- source reference: standard water properties at 20C
+
+## Time and Numerics
+- end_time: steady solver convergence
+- time_step_or_maxCo: not applicable for steady simpleFoam baseline
+- output_interval: solver-specific tutorial baseline
+- numerical_stabilization: none required beyond certified baseline
+
+## Objectives
+- pressure_drop
+
+## Defaults Applied
+- mesh.base_resolution: default certified coarse mesh
+- time_control.output_interval: solver-specific tutorial baseline
+
+## Assumptions Approved by User
+- incompressible Newtonian water at 20C
+- low-Re laminar flow
+
+## Missing / Unconfirmed Information
+-

@@ -1,0 +1,12 @@
+{
+  "material": "polymer_solution",
+  "aliases": ["聚合物溶液", "polymer solution"],
+  "likely_behavior": ["viscoelastic", "shear_thinning_possible"],
+  "candidate_models": ["Oldroyd-B", "Giesekus", "PTT"],
+  "business_questions": [
+    "是否有流变仪测试数据或厂家数据表？",
+    "是否观察到拉丝、回弹、入口胀大或明显弹性效应？",
+    "是否知道浓度、分子量或牌号？"
+  ],
+  "typical_parameter_policy": {"allowed_only_with_user_confirmation": true, "requires_source": true}
+}

@@ -1,0 +1,25 @@
+solver: icoFoam
+required_files:
+  - 0/U
+  - 0/p
+  - constant/physicalProperties
+  - system/controlDict
+  - system/fvSchemes
+  - system/fvSolution
+common_optional_files:
+  - Allclean
+  - system/blockMeshDict
+required_content:
+  - file: system/controlDict
+    must_contain:
+      - icoFoam
+  - file: constant/physicalProperties
+    must_contain:
+      - nu
+forbidden_files:
+  - constant/constitutiveProperties
+  - 0/alpha.water
+  - 0/alpha.water.org
+  - 0/p_rgh
+notes:
+  - blockMeshDict is optional because a valid case may use an existing or custom mesh.

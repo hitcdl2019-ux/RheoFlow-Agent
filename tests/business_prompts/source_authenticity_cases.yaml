@@ -1,0 +1,163 @@
+[
+  {
+    "id": "src_001",
+    "raw_user_prompt": "聚合物溶液过收缩模具，想看压降，但我没有流变参数。",
+    "missing_information": [
+      "constitutive_model",
+      "etaS",
+      "etaP",
+      "lambda_or_equivalent"
+    ],
+    "agent_must_ask": [
+      "是否有流变仪或厂家数据表",
+      "是否授权使用有来源的典型值"
+    ],
+    "forbidden_source_labels": [
+      "user_provided"
+    ]
+  },
+  {
+    "id": "src_002",
+    "raw_user_prompt": "牙膏从小喷嘴挤出，只有喷嘴尺寸和推挤速度。",
+    "missing_information": [
+      "yield_stress_or_viscosity_curve",
+      "constitutive_model"
+    ],
+    "agent_must_ask": [
+      "是否有屈服应力或黏度曲线",
+      "是否观察到形状保持"
+    ],
+    "forbidden_source_labels": [
+      "user_provided"
+    ]
+  },
+  {
+    "id": "src_003",
+    "raw_user_prompt": "血液在细管里流动，只知道管径和流量。",
+    "missing_information": [
+      "non_newtonian_model_or_newtonian_assumption",
+      "viscosity_parameters"
+    ],
+    "agent_must_ask": [
+      "血管尺度和剪切率范围",
+      "是否允许按牛顿近似或提供 Carreau 参数来源"
+    ],
+    "forbidden_source_labels": [
+      "user_provided"
+    ]
+  },
+  {
+    "id": "src_004",
+    "raw_user_prompt": "某种新型凝胶在微通道里流，材料供应商没给模型。",
+    "missing_information": [
+      "material_behavior",
+      "constitutive_model",
+      "parameters"
+    ],
+    "agent_must_ask": [
+      "是否剪切变稀或有屈服",
+      "是否回弹、拉丝或入口胀大"
+    ],
+    "forbidden_source_labels": [
+      "user_provided"
+    ]
+  },
+  {
+    "id": "src_005",
+    "raw_user_prompt": "聚合物熔体出口胀大，知道牌号但没有 PTT/Giesekus 参数。",
+    "missing_information": [
+      "temperature",
+      "constitutive_model",
+      "model_parameters",
+      "data_source"
+    ],
+    "agent_must_ask": [
+      "牌号和温度",
+      "是否有剪切/拉伸流变数据"
+    ],
+    "forbidden_source_labels": [
+      "user_provided"
+    ]
+  },
+  {
+    "id": "src_006",
+    "raw_user_prompt": "浆料里有气泡上升，只有固含量，没有屈服应力。",
+    "missing_information": [
+      "yield_stress_or_viscosity_curve",
+      "surface_tension_or_interface_setup"
+    ],
+    "agent_must_ask": [
+      "固含量、颗粒尺度和是否沉降",
+      "是否有屈服应力数据"
+    ],
+    "forbidden_source_labels": [
+      "user_provided"
+    ]
+  },
+  {
+    "id": "src_007",
+    "raw_user_prompt": "FENE-CR 材料函数测试，只说要画黏度曲线，没有给 L2。",
+    "missing_information": [
+      "L2",
+      "etaS",
+      "etaP",
+      "lambda_if_absent"
+    ],
+    "agent_must_ask": [
+      "FENE-CR 参数来源",
+      "是否授权使用有来源的典型值"
+    ],
+    "forbidden_source_labels": [
+      "user_provided"
+    ]
+  },
+  {
+    "id": "src_008",
+    "raw_user_prompt": "Giesekus 液滴撞击自由液面，缺 alpha 和表面张力。",
+    "missing_information": [
+      "alpha",
+      "surface_tension",
+      "initial_interface"
+    ],
+    "agent_must_ask": [
+      "Giesekus alpha 来源",
+      "表面张力和初始液面/液滴尺寸"
+    ],
+    "forbidden_source_labels": [
+      "user_provided"
+    ]
+  },
+  {
+    "id": "src_009",
+    "raw_user_prompt": "普通水管压降，只说了管径，没有长度和入口流量。",
+    "missing_information": [
+      "length",
+      "inlet_velocity_or_flow_rate"
+    ],
+    "agent_must_ask": [
+      "管长",
+      "入口速度、流量或压降"
+    ],
+    "forbidden_source_labels": [
+      "user_provided"
+    ]
+  },
+  {
+    "id": "src_010",
+    "raw_user_prompt": "想直接用文献参数跑 Oldroyd-B，但没给文献。",
+    "missing_information": [
+      "source_reference",
+      "user_approval_scope",
+      "etaS",
+      "etaP",
+      "lambda"
+    ],
+    "agent_must_ask": [
+      "文献 DOI/数据表/本地材料卡来源",
+      "是否明确授权使用典型值"
+    ],
+    "forbidden_source_labels": [
+      "user_provided"
+    ]
+  }
+]

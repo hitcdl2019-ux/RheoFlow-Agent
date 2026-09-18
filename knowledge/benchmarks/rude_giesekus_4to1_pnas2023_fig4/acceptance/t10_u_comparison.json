@@ -1,0 +1,25 @@
+{
+  "U_abs_error": {
+    "l2_relative_all_points": 0.0234992983929522,
+    "l2_relative_ref_nonzero_points": 0.02307843319311497,
+    "max_component_Ux": 0.24919524660200001,
+    "max_component_Uy": 0.0221109,
+    "max_component_Uz": 0.0,
+    "max_relative_ref_nonzero_points": 610.7891956653817,
+    "max_vector": 0.2491952620116352,
+    "mean_vector": 0.000976297232090062,
+    "rms_vector": 0.010995553423262543
+  },
+  "U_local_magnitude": {
+    "max": 1.3756565498213316,
+    "rms": 0.467925714556272
+  },
+  "U_ref_magnitude": {
+    "max": 1.375660098571749,
+    "rms": 0.46790986009013263
+  },
+  "coordinate_max_error": 1.000088900582341e-12,
+  "local_sample": "/data/chendl/cfd_project/Foam-Agent/runs/rude-giesekus-4to1-figure4-20260721-032436/postProcessing/sampleDict/10/officialPointsAll_U.xy",
+  "n_points": 50080,
+  "reference_csv": "/tmp/rude_simdata_20260721_130056/t10_U_Giesekus.csv"
+}

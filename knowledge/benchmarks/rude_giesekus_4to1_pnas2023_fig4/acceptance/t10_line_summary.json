@@ -1,0 +1,16 @@
+{
+  "Ux_after_max": 1.30289885457,
+  "Ux_before_max": 1.30289833258,
+  "Uy_after_max": -0.023957270162,
+  "Uy_after_min": -0.14023230707,
+  "Uy_before_max": -0.0239573718847,
+  "Uy_before_min": -0.14023362056,
+  "before_after_Ux_max_abs_diff": 7.73840760000255e-06,
+  "before_after_Ux_rms_diff": 2.2156964148793927e-06,
+  "before_after_Uy_max_abs_diff": 1.131245989999946e-05,
+  "before_after_Uy_rms_diff": 4.168790602284821e-06,
+  "csv": "/tmp/RUDE_GIESEKUS_T10_LINE_SAMPLES_20260721_130819.csv",
+  "n_line_points": 22,
+  "y_max": 0.997861304128,
+  "y_min": 0.0909090909093
+}

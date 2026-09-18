@@ -1,0 +1,8 @@
+calcWi0/calcWi0.C
+calcCd/calcCd.C
+calcKineticE/calcKineticE.C
+calcVortexL/calcVortexL.C
+calcW/calcW.C
+calcFfl/calcFfl.C
+
+LIB = $(FOAM_USER_LIBBIN)/libRheoToolTutorialPPUtils

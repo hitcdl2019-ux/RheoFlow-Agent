@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local configuration and secrets
+.env
+.env.*
+*.key
+*.pem
+*.token
+*.secret
+.rheoflow*
+
+# Runtime outputs
+runs/
+sessions/
+backups/
+output/
+logs/
+*.log
+*.tmp
+*.bak
+
+# Generated RAG/vector database artifacts
+database/faiss/**
+!database/faiss/README.md
+database/v10-foundation/faiss/**
+!database/v10-foundation/faiss/README.md
+
+# Large local case assets
+*.msh
+*.foam
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Generated channel-specific vector indices
+database/v9-rheotool/faiss/**
+!database/v9-rheotool/faiss/README.md
+
+# OpenFOAM/RheoTool compilation outputs
+**/Make/linux*/
+*.o
+*.dep

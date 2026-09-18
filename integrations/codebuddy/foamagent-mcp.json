@@ -1,0 +1,24 @@
+{
+  "mcpServers": {
+    "foamagent": {
+      "command": "/opt/conda/envs/FoamAgent/bin/python",
+      "args": [
+        "-m",
+        "src.mcp.product_server",
+        "--transport",
+        "stdio"
+      ],
+      "cwd": "/opt/Foam-Agent",
+      "env": {
+        "PYTHONPATH": "/opt/Foam-Agent",
+        "FOAMAGENT_MODEL_PROVIDER": "${FOAMAGENT_MODEL_PROVIDER:-openai-codex}",
+        "FOAMAGENT_MODEL_VERSION": "${FOAMAGENT_MODEL_VERSION:-}",
+        "NOVA_API_KEY": "${NOVA_API_KEY:-}",
+        "NOVA_API_BASE_URL": "${NOVA_API_BASE_URL:-}",
+        "CODEBUDDY_API_KEY": "${CODEBUDDY_API_KEY:-}",
+        "CODEBUDDY_BASE_URL": "${CODEBUDDY_BASE_URL:-}",
+        "CODEBUDDY_MODEL": "${CODEBUDDY_MODEL:-}"
+      }
+    }
+  }
+}

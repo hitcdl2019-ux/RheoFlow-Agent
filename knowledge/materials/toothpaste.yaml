@@ -1,0 +1,8 @@
+{
+  "material": "toothpaste",
+  "aliases": ["牙膏", "toothpaste"],
+  "likely_behavior": ["yield_stress", "shear_thinning"],
+  "candidate_models": ["HerschelBulkley"],
+  "business_questions": ["是否有屈服应力或黏度曲线数据？", "是否需要启动/停止后的形状保持能力？"],
+  "typical_parameter_policy": {"allowed_only_with_user_confirmation": true, "requires_source": true}
+}

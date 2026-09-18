@@ -1,0 +1,20 @@
+solver: rheoInterFoam
+required_files:
+  - constant/constitutiveProperties
+  - constant/g
+  - system/controlDict
+  - system/fvSchemes
+  - system/fvSolution
+required_any_files:
+  - name: U
+    files: [0/U, 0/U.org]
+  - name: pressure
+    files: [0/p_rgh, 0/p, 0/pd]
+  - name: alpha.water
+    files: [0/alpha.water, 0/alpha.water.org, 0/alpha, 0/alpha.org, 0/alpha1, 0/alpha1.org]
+required_content:
+  - file: system/controlDict
+    must_contain: [rheoInterFoam]
+forbidden_files:
+  - constant/momentumTransport
+  - constant/phaseProperties

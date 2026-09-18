@@ -1,0 +1,25 @@
+# Foam-Agent User Requirement
+
+## Business Problem
+Simulate pressure drop for a polymer solution through a contraction die.
+
+## Material and Phases
+- material: polymer solution
+- phases: single liquid phase
+- observed behavior: viscoelastic
+
+## Geometry
+- geometry type: contraction die
+- dimensions: inlet_width=10 mm, outlet_width=2 mm, length=50 mm
+
+## Flow Conditions
+- steady_or_transient: steady
+- inlet: velocity=0.1 m/s
+
+## Rheology
+- model: Oldroyd-B
+- parameters: etaS=1 etaP=2 lambda=0.5
+- parameter source: user_provided
+
+## Objectives
+- pressure_drop

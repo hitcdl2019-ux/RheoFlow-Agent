@@ -1,0 +1,15 @@
+solver: pisoFoam
+required_files:
+  - 0/U
+  - 0/p
+  - constant/momentumTransport
+  - constant/physicalProperties
+  - system/controlDict
+  - system/fvSchemes
+  - system/fvSolution
+required_content:
+  - file: system/controlDict
+    must_contain: [pisoFoam]
+forbidden_files:
+  - constant/constitutiveProperties
+  - 0/p_rgh

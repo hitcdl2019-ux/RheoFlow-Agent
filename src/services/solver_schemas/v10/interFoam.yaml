@@ -1,0 +1,20 @@
+solver: interFoam
+required_files:
+  - constant/g
+  - constant/momentumTransport
+  - constant/phaseProperties
+  - system/controlDict
+  - system/fvSchemes
+  - system/fvSolution
+required_any_files:
+  - name: U
+    files: [0/U, 0/U.orig]
+  - name: p_rgh
+    files: [0/p_rgh, 0/p_rgh.orig]
+  - name: alpha.water
+    files: [0/alpha.water, 0/alpha.water.orig]
+required_content:
+  - file: system/controlDict
+    must_contain: [interFoam]
+forbidden_files:
+  - constant/constitutiveProperties

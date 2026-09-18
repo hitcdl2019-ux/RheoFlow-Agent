@@ -1,0 +1,14 @@
+solver: scalarTransportFoam
+required_files:
+  - 0/T
+  - 0/U
+  - constant/physicalProperties
+  - system/controlDict
+  - system/fvSchemes
+  - system/fvSolution
+required_content:
+  - file: system/controlDict
+    must_contain: [scalarTransportFoam]
+forbidden_files:
+  - constant/constitutiveProperties
+  - 0/p_rgh

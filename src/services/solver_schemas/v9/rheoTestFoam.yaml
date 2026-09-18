@@ -1,0 +1,21 @@
+solver: rheoTestFoam
+required_files:
+  - 0/U
+  - 0/p
+  - constant/constitutiveProperties
+  - system/controlDict
+  - system/fvSchemes
+  - system/fvSolution
+models:
+  gnf: [HerschelBulkley, CarreauYasuda, BirdCarreau, CrossPowerLaw, powerLaw]
+  viscoelastic: [Oldroyd-B, Oldroyd-BLog, Oldroyd-BSqrt, Oldroyd-BRootk, Giesekus, GiesekusLog, PTT, PTTLog, FENE-CR]
+conditional_rules:
+  - name: viscoelastic_requires_tau
+    if: model_family == viscoelastic
+    require: [0/tau]
+required_content:
+  - file: system/controlDict
+    must_contain: [rheoTestFoam]
+forbidden_files:
+  - constant/momentumTransport
+  - constant/physicalProperties

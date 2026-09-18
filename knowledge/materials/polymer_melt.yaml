@@ -1,0 +1,8 @@
+{
+  "material": "polymer_melt",
+  "aliases": ["聚合物熔体", "polymer melt", "PP melt", "PE melt"],
+  "likely_behavior": ["viscoelastic", "shear_thinning"],
+  "candidate_models": ["PTT", "Giesekus", "FENE-CR"],
+  "business_questions": ["请提供材料牌号、温度和剪切/拉伸流变数据。", "是否观察到出口胀大或熔体破裂？"],
+  "typical_parameter_policy": {"allowed_only_with_user_confirmation": true, "requires_source": true}
+}

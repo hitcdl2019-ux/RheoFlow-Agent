@@ -1,0 +1,8 @@
+{
+  "material": "slurry",
+  "aliases": ["浆料", "slurry", "泥浆"],
+  "likely_behavior": ["shear_thinning", "yield_stress_possible"],
+  "candidate_models": ["HerschelBulkley", "CarreauYasuda"],
+  "business_questions": ["请提供固含量、颗粒尺度和是否沉降。", "是否有剪切变稀或屈服应力数据？"],
+  "typical_parameter_policy": {"allowed_only_with_user_confirmation": true, "requires_source": true}
+}

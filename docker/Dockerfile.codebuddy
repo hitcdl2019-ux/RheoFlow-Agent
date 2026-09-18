@@ -1,0 +1,73 @@
+# Foam-Agent + CodeBuddy same-container development image.
+#
+# Build from the closed-out dual OpenFOAM runtime image, then overlay the current
+# Foam-Agent source tree so integration files and refreshed RAG data are included.
+# The base image provides OpenFOAM v10, rheoTool/OpenFOAM v9, pytest, and PyVista.
+
+ARG FOAMAGENT_BASE_IMAGE=foamagent-dual-openfoam:v2
+FROM ${FOAMAGENT_BASE_IMAGE}
+
+USER root
+
+ARG NODE_VERSION=22.23.1
+ARG CODEBUDDY_VERSION=2.125.0
+
+RUN mkdir -p /opt/node \
+    && curl -fsSL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz" \
+    | tar -xJ -C /opt/node --strip-components=1
+
+ENV PATH=/opt/node/bin:${PATH}
+
+RUN npm config set fund false \
+    && npm config set audit false \
+    && npm install -g "@tencent-ai/codebuddy-code@${CODEBUDDY_VERSION}"
+
+COPY docker/rheotool_tutorial_bcs /tmp/rheotool_tutorial_bcs
+COPY docker/rheotool_tutorial_pputils /tmp/rheotool_tutorial_pputils
+
+# RheoTool tutorial cases such as rheoFoam/Cavity/Oldroyd-BLog and
+# rheoFoam/Contraction41/Oldroyd-BLog use custom tutorial boundary conditions
+# (for example `uLid`, `uCos`, `HBprofile`, `uShaft`, and `ACPotential`).
+# `linearExtrapolation` is provided by RheoTool's libBCRheoTool.so in the v9
+# runtime; do not also compile it into this add-on library, or OpenFOAM will
+# report duplicate runtime-selection-table entries.
+# The upstream foam-extend boundary-condition library is not directly
+# Foundation-v9-compatible, so this image builds a small Foundation-v9-compatible
+# tutorial BC library preserving the original formulas needed by the shipped
+# tutorials.
+RUN bash -lc 'source /opt/openfoam9/etc/bashrc || true; \
+    set -e; \
+    cd /tmp/rheotool_tutorial_bcs; \
+    wmake libso; \
+    test -f "$FOAM_USER_LIBBIN/libRheoToolTutorialBCs.so"; \
+    for bc in uLid uCos HBprofile uShaft ACPotential; do \
+        strings "$FOAM_USER_LIBBIN/libRheoToolTutorialBCs.so" | grep -q "$bc"; \
+    done'
+
+
+
+# RheoTool tutorials use several tutorial-specific ppUtils.  Build them as a
+# small add-on library instead of disabling tutorial diagnostics.
+RUN bash -lc 'source /opt/openfoam9/etc/bashrc || true; \
+    set -e; \
+    cd /tmp/rheotool_tutorial_pputils; \
+    wmake libso; \
+    test -f "$FOAM_USER_LIBBIN/libRheoToolTutorialPPUtils.so"; \
+    for pputil in calcWi0 calcCd calcKineticE calcVortexL calcW calcFfl; do \
+        strings "$FOAM_USER_LIBBIN/libRheoToolTutorialPPUtils.so" | grep -q "$pputil"; \
+    done'
+
+RUN rm -rf /opt/Foam-Agent /home/openfoam/Foam-Agent
+COPY . /opt/Foam-Agent
+RUN ln -s /opt/Foam-Agent /home/openfoam/Foam-Agent
+
+WORKDIR /opt/Foam-Agent
+
+# Reset the inherited /bin/bash entrypoint from the OpenFOAM base image so
+# `docker run foamagent-codebuddy:dev codebuddy ...` executes the Node CLI
+# directly instead of making bash parse the JavaScript entry file.
+ENTRYPOINT []
+CMD ["/bin/bash"]
+
+# Typical interactive use:
+#   codebuddy --mcp-config /opt/Foam-Agent/integrations/codebuddy/foamagent-mcp.json --strict-mcp-config

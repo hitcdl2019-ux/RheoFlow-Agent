@@ -1,0 +1,511 @@
+[
+  {
+    "id": "real_001",
+    "category": "newtonian_steady",
+    "prompt": "水在微管中的稳态压降，geometry pipe diameter=0.01 length=1 inlet velocity=0.001 nu=1e-6 rho=1000 property source: literature_typical source reference: standard water properties at 20C user approved，输出沿程压力损失",
+    "expected_status": "ready",
+    "expected_channel": "v10-foundation",
+    "expected_version": "v10",
+    "expected_solver": "simpleFoam"
+  },
+  {
+    "id": "real_002",
+    "category": "newtonian_steady",
+    "prompt": "空气在小型矩形风道内稳态不可压缩流动，geometry channel width=0.01 height=0.005 length=0.1 inlet velocity=0.01 nu=1.5e-5 rho=1.2 property source: literature_typical source reference: standard air properties at 20C user approved，关注出口流量",
+    "expected_status": "ready",
+    "expected_channel": "v10-foundation",
+    "expected_version": "v10",
+    "expected_solver": "simpleFoam"
+  },
+  {
+    "id": "real_003",
+    "category": "newtonian_transient",
+    "prompt": "瞬态不可压缩小尺度圆柱绕流，geometry channel width=0.01 height=0.005 length=0.1 inlet velocity=0.01 nu=1e-6 rho=1000 property source: literature_typical source reference: standard water properties at 20C user approved，观察尾涡脱落",
+    "expected_status": "ready",
+    "expected_channel": "v10-foundation",
+    "expected_version": "v10",
+    "expected_solver": "pimpleFoam"
+  },
+  {
+    "id": "real_004",
+    "category": "newtonian_transient",
+    "prompt": "非稳态入口脉动微管流，geometry pipe diameter=0.005 length=0.2 inlet velocity=0.001 nu=1e-6 rho=1000 property source: literature_typical source reference: standard water properties at 20C user approved，输出压力波动",
+    "expected_status": "ready",
+    "expected_channel": "v10-foundation",
+    "expected_version": "v10",
+    "expected_solver": "pimpleFoam"
+  },
+  {
+    "id": "real_005",
+    "category": "benchmark",
+    "prompt": "层流顶盖驱动空腔 benchmark cavity velocity=1 nu=0.01 rho=1 property source: benchmark user approved，使用认证基准几何输出速度场",
+    "expected_status": "ready",
+    "expected_channel": "v10-foundation",
+    "expected_version": "v10",
+    "expected_solver": "icoFoam"
+  },
+  {
+    "id": "real_006",
+    "category": "newtonian_two_phase",
+    "prompt": "水和空气两相自由液面破坝，geometry tank length=1 height=0.5 inlet velocity=0 nu=1e-6 rho=1000 property source: literature_typical source reference: standard water-air properties at 20C user approved，关注液面形状",
+    "expected_status": "ready",
+    "expected_channel": "v10-foundation",
+    "expected_version": "v10",
+    "expected_solver": "interFoam"
+  },
+  {
+    "id": "real_007",
+    "category": "newtonian_two_phase",
+    "prompt": "小气泡在水柱中上升的两相流，geometry column diameter=0.01 height=0.2 inlet velocity=0.001 nu=1e-6 rho=1000 property source: literature_typical source reference: standard water properties at 20C user approved，考虑界面张力",
+    "expected_status": "ready",
+    "expected_channel": "v10-foundation",
+    "expected_version": "v10",
+    "expected_solver": "interFoam"
+  },
+  {
+    "id": "real_008",
+    "category": "newtonian_two_phase",
+    "prompt": "牛顿液滴在空气中受界面张力变形，geometry box length=0.2 height=0.2 inlet velocity=0 nu=1e-6 rho=1000 property source: literature_typical source reference: standard water-air properties at 20C user approved，输出相分数",
+    "expected_status": "ready",
+    "expected_channel": "v10-foundation",
+    "expected_version": "v10",
+    "expected_solver": "interFoam"
+  },
+  {
+    "id": "real_009",
+    "category": "viscoelastic_single_phase",
+    "prompt": "Oldroyd-B 聚合物溶液通过收缩模具，geometry contraction die width=0.01 length=0.1 inlet velocity=0.05 etaS=1 etaP=2 lambda=0.5，输出压降",
+    "expected_status": "ready",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam"
+  },
+  {
+    "id": "real_010",
+    "category": "viscoelastic_single_phase",
+    "prompt": "Giesekus 聚合物熔体挤出流动，geometry die width=0.02 length=0.2 inlet velocity=0.03 etaS=1 etaP=3 lambda=0.8 alpha=0.2，观察入口胀大",
+    "expected_status": "ready",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam"
+  },
+  {
+    "id": "real_011",
+    "category": "viscoelastic_single_phase",
+    "prompt": "PTT 聚合物熔体管道流动，geometry pipe diameter=0.02 length=0.5 inlet velocity=0.02 etaS=1 etaP=2 lambda=0.5 epsilon=0.1，输出应力场",
+    "expected_status": "ready",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam"
+  },
+  {
+    "id": "real_012",
+    "category": "gnf_single_phase",
+    "prompt": "Carreau 血液在血管中的剪切变稀流动，geometry pipe diameter=0.004 length=0.1 inlet velocity=0.2 nu0=10 nuInf=1 lambda=0.2 n=0.5 a=2，输出压降",
+    "expected_status": "ready",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam"
+  },
+  {
+    "id": "real_013",
+    "category": "gnf_single_phase",
+    "prompt": "Herschel 牙膏从喷嘴挤出，geometry die diameter=0.005 length=0.05 inlet velocity=0.01 tau0=5 k=2 n=0.4，关注屈服应力影响",
+    "expected_status": "ready",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam"
+  },
+  {
+    "id": "real_014",
+    "category": "material_characterization",
+    "prompt": "FENE-CR 材料函数流变仪测试，geometry rheometer radius=0.02 height=0.001 etaS=1 etaP=2 lambda=0.5 L2=100，输出剪切黏度曲线",
+    "expected_status": "ready",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoTestFoam"
+  },
+  {
+    "id": "real_015",
+    "category": "material_characterization",
+    "prompt": "振荡剪切流变仪测试 Giesekus 材料函数，geometry rheometer radius=0.02 height=0.001 etaS=1 etaP=2 lambda=0.5 alpha=0.2，输出材料函数",
+    "expected_status": "ready",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoTestFoam"
+  },
+  {
+    "id": "real_016",
+    "category": "rheological_two_phase",
+    "prompt": "Oldroyd-B 粘弹性液滴自由液面变形，geometry tank length=0.2 height=0.1 inlet velocity=0.01 etaS=1 etaP=2 lambda=0.5，考虑界面张力",
+    "expected_status": "ready",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoInterFoam"
+  },
+  {
+    "id": "real_017",
+    "category": "rheological_two_phase",
+    "prompt": "Herschel 浆料中气泡上升，两相界面问题，geometry column diameter=0.1 height=1 inlet velocity=0.01 tau0=5 k=2 n=0.4，关注屈服流体界面",
+    "expected_status": "ready",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoInterFoam"
+  },
+  {
+    "id": "real_018",
+    "category": "newtonian_steady",
+    "prompt": "稳态不可压缩小尺度外流绕流，geometry channel width=0.01 height=0.005 length=0.1 inlet velocity=0.01 nu=1e-6 rho=1000 property source: literature_typical source reference: standard water properties at 20C user approved，输出阻力趋势",
+    "expected_status": "ready",
+    "expected_channel": "v10-foundation",
+    "expected_version": "v10",
+    "expected_solver": "simpleFoam"
+  },
+  {
+    "id": "real_019",
+    "category": "newtonian_transient",
+    "prompt": "瞬态不可压缩混合通道流，geometry channel width=0.01 height=0.005 length=0.1 inlet velocity=0.001 nu=1e-6 rho=1000 property source: literature_typical source reference: standard water properties at 20C user approved，观察随时间发展的速度场",
+    "expected_status": "ready",
+    "expected_channel": "v10-foundation",
+    "expected_version": "v10",
+    "expected_solver": "pimpleFoam"
+  },
+  {
+    "id": "real_020",
+    "category": "newtonian_two_phase",
+    "prompt": "水槽中自由液面晃动，两相水和空气，geometry tank length=1 height=0.5 inlet velocity=0 nu=1e-6 rho=1000 property source: literature_typical source reference: standard water-air properties at 20C user approved，输出界面位置",
+    "expected_status": "ready",
+    "expected_channel": "v10-foundation",
+    "expected_version": "v10",
+    "expected_solver": "interFoam"
+  },
+  {
+    "id": "real_021",
+    "category": "missing_geometry",
+    "prompt": "水在管道中的稳态压降，inlet velocity=1，输出沿程压力损失",
+    "expected_status": "clarify",
+    "expected_blocking_fields": [
+      "geometry.dimensions"
+    ]
+  },
+  {
+    "id": "real_022",
+    "category": "missing_flow",
+    "prompt": "水在管道中的稳态流动，geometry pipe diameter=0.1 length=10，输出流线分布",
+    "expected_status": "clarify",
+    "expected_blocking_fields": [
+      "flow.boundary_condition"
+    ]
+  },
+  {
+    "id": "real_023",
+    "category": "missing_geometry_flow",
+    "prompt": "模拟普通不可压缩管流，输出压降",
+    "expected_status": "clarify",
+    "expected_blocking_fields": [
+      "geometry.dimensions"
+    ]
+  },
+  {
+    "id": "real_024",
+    "category": "missing_rheology_parameters",
+    "prompt": "Oldroyd-B polymer solution steady flow，geometry contraction die width=0.01 length=0.1 inlet velocity=0.05，输出压降",
+    "expected_status": "clarify",
+    "expected_blocking_fields": [
+      "rheology.parameters"
+    ],
+    "expected_missing_parameters": [
+      "etaS",
+      "etaP",
+      "lambda"
+    ]
+  },
+  {
+    "id": "real_025",
+    "category": "missing_constitutive_model",
+    "prompt": "聚合物粘弹性流动，geometry pipe diameter=0.02 length=0.5 inlet velocity=0.02，输出压力降",
+    "expected_status": "clarify",
+    "expected_blocking_fields": [
+      "constitutive_model"
+    ]
+  },
+  {
+    "id": "real_026",
+    "category": "unknown_material",
+    "prompt": "某种新型凝胶 稳态流动，geometry pipe diameter=0.01 length=0.2 inlet velocity=0.02，输出压降",
+    "expected_status": "clarify",
+    "expected_blocking_fields": [
+      "material.behavior"
+    ]
+  },
+  {
+    "id": "real_027",
+    "category": "contradiction",
+    "prompt": "稳态和瞬态牛顿管流，geometry pipe diameter=0.1 length=1 inlet velocity=1，输出速度场",
+    "expected_status": "clarify",
+    "expected_question_contains": "稳态还是瞬态"
+  },
+  {
+    "id": "real_028",
+    "category": "contradiction",
+    "prompt": "牛顿粘弹性聚合物流动，geometry pipe diameter=0.02 length=0.5 inlet velocity=0.02 etaS=1 etaP=2 lambda=0.5，输出压降",
+    "expected_status": "clarify",
+    "expected_question_contains": "牛顿流体还是具有非牛顿"
+  },
+  {
+    "id": "real_029",
+    "category": "material_test_missing_geometry",
+    "prompt": "计算 FENE-CR 材料函数 etaS=1 etaP=2 lambda=0.5 L2=100，输出剪切黏度曲线",
+    "expected_status": "clarify",
+    "expected_blocking_fields": [
+      "geometry.dimensions"
+    ]
+  },
+  {
+    "id": "real_030",
+    "category": "two_phase_missing_geometry",
+    "prompt": "水和空气两相自由液面破坝，inlet velocity=0，关注液面形状",
+    "expected_status": "clarify",
+    "expected_blocking_fields": [
+      "geometry.dimensions"
+    ]
+  },
+  {
+    "id": "real_031",
+    "category": "missing_source_and_params",
+    "prompt": "Oldroyd-B polymer solution steady flow，geometry contraction die width=0.01 length=0.1 inlet velocity=0.05 parameter source: literature_typical user approved，输出压降",
+    "expected_status": "clarify",
+    "expected_blocking_fields": [
+      "rheology.parameters"
+    ]
+  },
+  {
+    "id": "real_032",
+    "category": "material_card_clarify",
+    "prompt": "牙膏从喷嘴挤出，geometry die diameter=0.005 length=0.05 inlet velocity=0.01，用户还没有材料数据，关注形状保持能力",
+    "expected_status": "clarify",
+    "expected_infer_field": "rheology.behavior"
+  },
+  {
+    "id": "real_033",
+    "category": "unsupported",
+    "prompt": "可压缩喷管流动，geometry nozzle diameter=0.1 length=1 inlet velocity=10，输出激波结构",
+    "expected_status": "reject",
+    "expected_rejection_contains": "可压缩"
+  },
+  {
+    "id": "real_034",
+    "category": "unsupported",
+    "prompt": "燃烧反应流，geometry chamber diameter=0.5 length=1 inlet velocity=1，输出火焰传播",
+    "expected_status": "reject",
+    "expected_rejection_contains": "燃烧"
+  },
+  {
+    "id": "real_035",
+    "category": "unsupported",
+    "prompt": "管内传热换热计算，geometry pipe diameter=0.1 length=2 inlet velocity=1，输出温度场",
+    "expected_status": "reject",
+    "expected_rejection_contains": "传热"
+  },
+  {
+    "id": "real_036",
+    "category": "unsupported",
+    "prompt": "固体和流体之间的热耦合换热，geometry channel width=1 height=0.5 length=2 inlet velocity=1",
+    "expected_status": "reject",
+    "expected_rejection_contains": "热耦合"
+  },
+  {
+    "id": "real_037",
+    "category": "unsupported_solver",
+    "prompt": "使用 rhoPimpleFoam 做可压缩瞬态喷管，geometry nozzle diameter=0.1 length=1 inlet velocity=10",
+    "expected_status": "reject",
+    "expected_rejection_contains": "rhoPimpleFoam"
+  },
+  {
+    "id": "real_038",
+    "category": "unsupported_solver",
+    "prompt": "使用 reactingFoam 做燃料空气燃烧，geometry chamber diameter=0.5 length=1 inlet velocity=1",
+    "expected_status": "reject",
+    "expected_rejection_contains": "reactingFoam"
+  },
+  {
+    "id": "real_039",
+    "category": "unsupported_solver",
+    "prompt": "使用 buoyantSimpleFoam 做浮力传热，geometry cavity width=1 height=1 velocity=0.1",
+    "expected_status": "reject",
+    "expected_rejection_contains": "buoyantSimpleFoam"
+  },
+  {
+    "id": "real_040",
+    "category": "unsupported_esi_runtime",
+    "prompt": "要求自动 ESI 运行兼容，把 Foundation 失败的算例自动切到 ESI runtime，geometry pipe diameter=0.1 length=1 inlet velocity=1",
+    "expected_status": "reject",
+    "expected_rejection_contains": "自动 esi"
+  },
+  {
+    "id": "real_041",
+    "category": "physics_sanity_high_re",
+    "prompt": "水在管道中的稳态压降，geometry pipe diameter=0.1 length=10 inlet velocity=1 model: Newtonian parameters: nu=1e-6 rho=1000 property source: literature_typical source reference: standard water properties at 20C user approved，Missing / Unconfirmed Information: -",
+    "expected_status": "clarify",
+    "expected_blocking_fields": [
+      "physics.reynolds_number"
+    ]
+  },
+  {
+    "id": "real_042",
+    "category": "physics_sanity_newtonian_none_required",
+    "prompt": "水在管道中的稳态压降，geometry pipe diameter=0.01 length=1 inlet velocity=0.001 model: Newtonian parameters: none required parameter source: user_provided，Missing / Unconfirmed Information: -",
+    "expected_status": "clarify",
+    "expected_blocking_fields": [
+      "fluid.properties"
+    ]
+  },
+  {
+    "id": "real_043",
+    "category": "zh_newtonian_microtube_ready",
+    "prompt": "我想计算20摄氏度水在微管里的稳态压降，geometry pipe diameter=0.001 length=0.1 inlet velocity=0.001 model: Newtonian parameters: nu=1e-6 rho=1000 property source: literature_typical source reference: standard water properties at 20C user approved，输出压降和速度场",
+    "expected_status": "ready",
+    "expected_channel": "v10-foundation",
+    "expected_version": "v10",
+    "expected_solver": "simpleFoam"
+  },
+  {
+    "id": "real_044",
+    "category": "zh_physics_sanity_high_re",
+    "prompt": "我想算水在大管道里的稳态压降，geometry pipe diameter=0.1 length=10 inlet velocity=1 model: Newtonian parameters: nu=1e-6 rho=1000 property source: literature_typical source reference: standard water properties at 20C user approved，输出压降",
+    "expected_status": "clarify",
+    "expected_blocking_fields": [
+      "physics.reynolds_number"
+    ]
+  },
+  {
+    "id": "real_045",
+    "category": "zh_unknown_material_behavior",
+    "prompt": "新型凝胶在微通道里流动，geometry channel width=0.001 height=0.0005 length=0.05 inlet velocity=0.002，不像水有回弹，输出压降",
+    "expected_status": "clarify",
+    "expected_blocking_fields": [
+      "material.behavior"
+    ]
+  },
+  {
+    "id": "real_046",
+    "category": "zh_unsupported_heat_transfer",
+    "prompt": "我想计算管内水流和管壁之间的传热换热，geometry pipe diameter=0.01 length=1 inlet velocity=0.1，输出温度场",
+    "expected_status": "reject",
+    "expected_rejection_contains": "传热"
+  },
+  {
+    "id": "real_047",
+    "category": "zh_unsupported_combustion",
+    "prompt": "我想模拟燃气燃烧室里的燃烧火焰传播，geometry chamber diameter=0.5 length=1 inlet velocity=1，输出火焰位置",
+    "expected_status": "reject",
+    "expected_rejection_contains": "燃烧"
+  },
+  {
+    "id": "real_048",
+    "category": "zh_unsupported_compressible",
+    "prompt": "高速空气通过喷管的可压缩流动，geometry nozzle diameter=0.05 length=0.5 inlet velocity=100，输出激波",
+    "expected_status": "reject",
+    "expected_rejection_contains": "可压缩"
+  },
+  {
+    "id": "real_049",
+    "category": "zh_rheological_two_phase_ready",
+    "prompt": "Oldroyd-B 粘弹性液滴在空气中自由液面变形，geometry box length=0.2 height=0.1 inlet velocity=0.01 etaS=1 etaP=2 lambda=0.5，考虑界面张力，输出相分数",
+    "expected_status": "ready",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoInterFoam"
+  },
+  {
+    "id": "real_050",
+    "category": "zh_gnf_ready",
+    "prompt": "血液在微血管中的剪切变稀稳态流动，geometry pipe diameter=0.003 length=0.05 inlet velocity=0.05 Carreau nu0=10 nuInf=1 lambda=0.2 n=0.5 a=2，输出压降",
+    "expected_status": "ready",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam"
+  },
+  {
+    "id": "real_051",
+    "category": "zh_material_characterization_ready",
+    "prompt": "我有一组 Giesekus 材料想做振荡剪切流变仪测试，geometry rheometer radius=0.02 height=0.001 etaS=1 etaP=2 lambda=0.5 alpha=0.2，输出材料函数",
+    "expected_status": "ready",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoTestFoam"
+  },
+  {
+    "id": "real_052",
+    "category": "zh_missing_constitutive_model",
+    "prompt": "聚合物溶液通过收缩模具，geometry contraction die width=0.01 length=0.1 inlet velocity=0.05，用户不知道本构模型和参数，输出压降",
+    "expected_status": "clarify",
+    "expected_blocking_fields": [
+      "constitutive_model"
+    ],
+    "expected_infer_field": "rheology.behavior"
+  },
+  {
+    "id": "real_053",
+    "category": "rheotool_guide_5_1_rheofoam",
+    "prompt": "RheoTool user guide 6.0 section 5.1.3 tutorial，viscoelastic Oldroyd-BLog planar channel flow between parallel plates，geometry two parallel plates half-width w mesh=50x60 inlet uniform velocity U Re=0 Wi=0.99 beta=0.01 rho=1 etaS=0.01 etaP=0.99 lambda=1 stabilization=coupling passive scalar off，commands blockMesh sample，输出 x=35 处速度和 extra-stress 剖面。",
+    "expected_status": "ready",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam"
+  },
+  {
+    "id": "real_054",
+    "category": "rheotool_guide_5_1_rheofoam",
+    "prompt": "RheoTool user guide 6.0 section 5.1.4 tutorial，Oldroyd-BLog lid-driven cavity benchmark，geometry square cavity side length L mesh=127x127 top lid velocity U stationary walls noSlip Re=0.01 De=1 beta=0.5 rho=0.01 etaS=0.5 etaP=0.5 lambda=1 stabilization=coupling passive scalar off，commands blockMesh sample，输出中心线速度、tau_xy 和平均动能。",
+    "expected_status": "ready",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam"
+  },
+  {
+    "id": "real_055",
+    "category": "rheotool_guide_5_1_rheofoam",
+    "prompt": "RheoTool user guide 6.0 section 5.1.5 tutorial，Oldroyd-BLog 4:1 planar contraction benchmark，geometry planar contraction ratio=4:1 mesh=M1 inlet time-varying velocity profile Re=0.01 De=1 beta=0.11111 rho=0.01 etaS=0.11111 etaP=0.88889 lambda=1 stabilization=coupling passive scalar off，commands blockMesh sample，输出收缩口上下游速度和应力采样。",
+    "expected_status": "ready",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam"
+  },
+  {
+    "id": "real_056",
+    "category": "rheotool_guide_5_1_rheofoam",
+    "prompt": "RheoTool user guide 6.0 section 5.1.6 tutorial，Oldroyd-BLog confined cylinder benchmark，geometry channel with vertically centered cylinder radius R blockage ratio=50% cylinder at 20R from inlet downstream length=60R inlet uniform velocity U Re=0 Wi=0.7 beta=0.59 rho=1 etaS=0.59 etaP=0.41 lambda=0.7 stabilization=coupling passive scalar off，commands blockMesh mirrorMesh，输出阻力系数和第一法向应力差。",
+    "expected_status": "ready",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam"
+  },
+  {
+    "id": "real_057",
+    "category": "rheotool_guide_5_1_rheofoam",
+    "prompt": "RheoTool user guide 6.0 section 5.1.7 tutorial，Oldroyd-BLog 2D cross-slot bifurcation benchmark，geometry cross-slot four arms width W length=10W central square mesh=51x51 arm mesh=60x51 two balanced inlets velocity U Re=0 Wi=0.33 beta=0 Pe=500 rho=1 etaS=0 etaP=1 lambda=0.33 stabilization=coupling passive scalar on D=0.002，commands blockMesh setFields，输出停滞点局部 Weissenberg 数和被动标量分布。",
+    "expected_status": "ready",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam"
+  },
+  {
+    "id": "real_058",
+    "category": "rheotool_guide_5_1_rheofoam",
+    "prompt": "RheoTool user guide 6.0 section 5.1.8 tutorial，HerschelBulkley blood flow in real-model aneurysm，geometry 3D aneurysm case C0005 inlet radius=1.66mm outlet1 radius=1.17mm outlet2 radius=0.95mm mesh cells around 280k steady inlet fully-developed velocity ReGN=420 rho=1050 tau0=0.0175 k=8.9721e-3 n=0.8601 eta0=0.15，commands decomposePar mpirun -np 2 reconstructPar，输出流线和壁面剪切应力。",
+    "expected_status": "ready",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam"
+  },
+  {
+    "id": "real_059",
+    "category": "rheotool_guide_5_1_rheofoam",
+    "prompt": "RheoTool user guide 6.0 section 5.1.9 tutorial，CarreauYasuda viscous fluid damper with moving mesh，geometry axisymmetric damper 45mm+20mm+45mm gap=3mm shaft radius=5mm outer radius=17mm piston edge curvature radius=0.75mm piston velocity boundary condition from oscillatory motion amplitude=0.012m frequency=32Hz rho=1000 eta0/nu0=100 etaInf/nuInf=0 k(lambda)=0.0084033613 lambda=0.0084033613 n=0.353 a=1.433，commands blockMesh，输出活塞和轴上的反作用力。",
+    "expected_status": "ready",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam"
+  }
+]

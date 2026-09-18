@@ -1,0 +1,7 @@
+uLidFvPatchVectorField.C
+uCosFvPatchVectorField.C
+HBprofileFvPatchVectorField.C
+uShaftFvPatchVectorField.C
+ACPotentialFvPatchScalarField.C
+
+LIB = $(FOAM_USER_LIBBIN)/libRheoToolTutorialBCs

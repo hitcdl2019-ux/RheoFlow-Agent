@@ -1,0 +1,21 @@
+solver: rhoPimpleFoam
+required_files:
+  - constant/momentumTransport
+  - constant/physicalProperties
+  - system/blockMeshDict
+  - system/controlDict
+  - system/fvSchemes
+  - system/fvSolution
+required_any_files:
+  - name: U
+    files: [0/U, 0/U.orig]
+  - name: p
+    files: [0/p, 0/p.orig]
+  - name: T
+    files: [0/T, 0/T.orig]
+required_content:
+  - file: system/controlDict
+    must_contain: [rhoPimpleFoam]
+forbidden_files:
+  - constant/constitutiveProperties
+  - 0/p_rgh

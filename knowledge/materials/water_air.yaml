@@ -1,0 +1,8 @@
+{
+  "material": "water_air",
+  "aliases": ["水和空气", "water and air", "water-air", "水/空气"],
+  "likely_behavior": ["newtonian_two_phase"],
+  "candidate_models": ["Newtonian"],
+  "business_questions": ["请提供自由液面初始位置、入口/出口条件和表面张力是否重要。"],
+  "typical_parameter_policy": {"allowed_only_with_user_confirmation": false, "requires_source": false}
+}

@@ -1,0 +1,20 @@
+schema_version: 1
+image: foamagent-dual-openfoam@sha256:c15f3b22d2bcc648b95ae0e2ef929bfb88723eb901b51de4e1b2719945650e5d
+certified:
+  v9-rheotool:
+    version: v9
+    solvers:
+      rheoFoam: rheological-single-phase
+      rheoTestFoam: material-characterization
+      rheoInterFoam: rheological-two-phase
+  v10-foundation:
+    version: v10
+    solvers:
+      icoFoam: newtonian-laminar-transient
+      simpleFoam: newtonian-steady
+      pimpleFoam: newtonian-transient
+      interFoam: newtonian-two-phase
+policy:
+  uncertified_solver: reject
+  missing_constitutive_parameters: clarify
+  cross_channel_fallback: forbidden

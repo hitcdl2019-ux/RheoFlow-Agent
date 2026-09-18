@@ -1,0 +1,64 @@
+id: rude_giesekus_4to1_pnas2023_fig4
+status: certified_local_passed
+source_type: benchmark_case
+source:
+  title: "PNAS 2023 RUDE Figure 4 native Giesekus 4:1 contraction benchmark"
+  doi: "10.1073/pnas.2304669120"
+  repo: "https://github.com/krlennon/rude"
+  branch: "main"
+  case_path: "giesekus/OpenFOAM/Giesekus"
+  commit: "01fb78ce104df84449fd4f077c9ee9a452c9567e"
+aliases:
+  - "RUDE"
+  - "PNAS 2023 RUDE"
+  - "10.1073/pnas.2304669120"
+  - "Giesekus 4:1 contraction"
+  - "4:1 planar contraction Giesekus"
+  - "rude giesekus figure 4"
+target:
+  channel: "v9-rheotool"
+  version: "v9"
+  solver: "rheoFoam"
+  distribution: "foundation+rheotool"
+physics:
+  case_domain: "rheology"
+  case_category: "Contraction41"
+  phase_type: "single-phase"
+  incompressible: true
+  flow_regime: "transient"
+  geometry_family: "4:1 planar contraction"
+  constitutive_family: "viscoelastic"
+  model: "Giesekus"
+  objective: "benchmark-reproduction"
+parameters:
+  rho: 0.1
+  etaS: 0.11111
+  etaP: 0.88889
+  lambda: 1.0
+  alpha: 0.8
+  beta: "1/9"
+  Re: 0.1
+  Wi: 1.0
+  El: 10.0
+numerics:
+  endTime: 10
+  deltaT: 0.0002
+  writeInterval: 2
+  maxCo: 0.01
+case_sets:
+  official_case:
+    description: "Upstream RUDE OpenFOAM case files as downloaded from the public repository. Contains dynamic-code constructs such as codedFixedValue."
+    path: "official_case"
+  runtime_case:
+    description: "Local Foam-Agent compatible case that completed to Time=10. Dynamic-code inlet/function objects may be replaced by equivalent non-dynamic runtime forms."
+    path: "runtime_case"
+validation:
+  solved_to_time: 10
+  expected_time_directories: [0, 2, 4, 6, 8, 10]
+  postprocess: "sampleDict"
+  line_summary: "acceptance/t10_line_summary.json"
+  u_comparison: "acceptance/t10_u_comparison.json"
+notes:
+  - "Use official_case for source-of-truth dictionary comparison."
+  - "Use runtime_case for local non-root/CLI regression if dynamicCode execution is unavailable or undesired."
+  - "Do not treat runtime-compatible adaptations as upstream official files."

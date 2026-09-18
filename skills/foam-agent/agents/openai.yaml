@@ -1,0 +1,4 @@
+interface:
+  display_name: "Foam-Agent Intake"
+  short_description: "Draft and validate Foam-Agent requirements"
+  default_prompt: "Use $foam-agent to turn my CFD business request into a stamped Foam-Agent user_requirement.txt."

@@ -1,0 +1,284 @@
+[
+  {
+    "id": "bp_001",
+    "prompt": "水在管道中的稳态压降，要求得到沿程压力损失",
+    "expected_channel": "v10-foundation",
+    "expected_version": "v10",
+    "expected_solver": "simpleFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_002",
+    "prompt": "低速不可压缩风道稳态流动，关注出口流量和压降",
+    "expected_channel": "v10-foundation",
+    "expected_version": "v10",
+    "expected_solver": "simpleFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_003",
+    "prompt": "瞬态不可压缩圆柱绕流，观察尾涡脱落",
+    "expected_channel": "v10-foundation",
+    "expected_version": "v10",
+    "expected_solver": "pimpleFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_004",
+    "prompt": "瞬态入口速度随时间脉动的不可压缩尾流",
+    "expected_channel": "v10-foundation",
+    "expected_version": "v10",
+    "expected_solver": "pimpleFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_005",
+    "prompt": "水和空气两相自由液面破坝过程",
+    "expected_channel": "v10-foundation",
+    "expected_version": "v10",
+    "expected_solver": "interFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_006",
+    "prompt": "水槽中两相液面晃动和空气夹带",
+    "expected_channel": "v10-foundation",
+    "expected_version": "v10",
+    "expected_solver": "interFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_007",
+    "prompt": "层流顶盖驱动空腔基准流动",
+    "expected_channel": "v10-foundation",
+    "expected_version": "v10",
+    "expected_solver": "icoFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_008",
+    "prompt": "Oldroyd-B 聚合物流动 etaS=1 etaP=2 lambda=0.5",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_009",
+    "prompt": "Carreau 剪切变稀管流 nu0=10 nuInf=1 lambda=0.2 n=0.5 a=2",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_010",
+    "prompt": "Oldroyd-B 聚合物流动",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam",
+    "expected_ready": false,
+    "expected_missing": ["etaS", "etaP", "lambda"]
+  },
+  {
+    "id": "bp_011",
+    "prompt": "聚合物粘弹性流动，需要预测压力降",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam",
+    "expected_ready": false,
+    "expected_missing_fields": ["constitutive_model"]
+  },
+  {
+    "id": "bp_012",
+    "prompt": "计算 FENE-CR 材料函数 etaS=1 etaP=2 lambda=0.5 L2=100",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoTestFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_013",
+    "prompt": "振荡剪切流变仪测试 Giesekus etaS=1 etaP=2 lambda=0.5 alpha=0.2",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoTestFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_014",
+    "prompt": "Oldroyd-B 粘弹性两相自由液面 etaS=1 etaP=2 lambda=0.5",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoInterFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_015",
+    "prompt": "聚合物液滴界面张力模拟 Giesekus etaS=1 etaP=2 lambda=0.5 alpha=0.2",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoInterFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_016",
+    "prompt": "稳态和瞬态牛顿粘弹性流动",
+    "expected_ready": false,
+    "expected_contradictions": ["steady_and_transient", "newtonian_and_rheological"]
+  },
+  {
+    "id": "bp_017",
+    "prompt": "可压缩燃烧传热模拟",
+    "expected_rejection": true
+  },
+  {
+    "id": "bp_018",
+    "prompt": "模拟普通不可压缩管流",
+    "expected_ready": false,
+    "expected_clarification": true
+  },
+  {
+    "id": "bp_019",
+    "prompt": "Herschel 屈服应力流体流动 tau0=5 k=2 n=0.4",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_020",
+    "prompt": "PTT 黏弹性挤出流动 etaS=1 etaP=2 lambda=0.5 epsilon=0.1",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_021",
+    "prompt": "非稳态入口脉动流",
+    "expected_channel": "v10-foundation",
+    "expected_version": "v10",
+    "expected_solver": "pimpleFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_022",
+    "prompt": "气泡上升两相流",
+    "expected_channel": "v10-foundation",
+    "expected_version": "v10",
+    "expected_solver": "interFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_023",
+    "prompt": "测量聚合物拉伸黏度材料函数 Oldroyd-B etaS=1 etaP=2 lambda=0.5",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoTestFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_024",
+    "prompt": "Giesekus 粘弹性液滴撞击自由液面 etaS=1 etaP=2 lambda=0.5 alpha=0.2",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoInterFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_025",
+    "prompt": "三维可压缩喷管流动",
+    "expected_rejection": true
+  },
+  {
+    "id": "bp_026",
+    "prompt": "固体和流体之间的热耦合换热",
+    "expected_rejection": true
+  },
+  {
+    "id": "bp_027",
+    "prompt": "燃料和空气混合后的燃烧反应流",
+    "expected_rejection": true
+  },
+  {
+    "id": "bp_028",
+    "prompt": "稳态不可压缩外流绕流",
+    "expected_channel": "v10-foundation",
+    "expected_version": "v10",
+    "expected_solver": "simpleFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_029",
+    "prompt": "瞬态移动边界不可压缩流动",
+    "expected_channel": "v10-foundation",
+    "expected_version": "v10",
+    "expected_solver": "pimpleFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_030",
+    "prompt": "表面张力驱动的牛顿液滴变形",
+    "expected_channel": "v10-foundation",
+    "expected_version": "v10",
+    "expected_solver": "interFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_031",
+    "prompt": "RheoTool 5.1.3 Oldroyd-BLog 平行板通道 Re=0 Wi=0.99 beta=0.01 rho=1 etaS=0.01 etaP=0.99 lambda=1",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_032",
+    "prompt": "RheoTool 5.1.4 Oldroyd-BLog 顶盖驱动方腔 Re=0.01 De=1 beta=0.5 rho=0.01 etaS=0.5 etaP=0.5 lambda=1",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_033",
+    "prompt": "RheoTool 5.1.5 Oldroyd-BLog 4:1 平面收缩 Re=0.01 De=1 beta=0.11111 rho=0.01 etaS=0.11111 etaP=0.88889 lambda=1",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_034",
+    "prompt": "RheoTool 5.1.6 Oldroyd-BLog 受限圆柱 blockage=50% Re=0 Wi=0.7 beta=0.59 rho=1 etaS=0.59 etaP=0.41 lambda=0.7",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_035",
+    "prompt": "RheoTool 5.1.7 Oldroyd-BLog 二维 cross-slot Re=0 Wi=0.33 beta=0 Pe=500 rho=1 etaS=0 etaP=1 lambda=0.33 D=0.002",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_036",
+    "prompt": "RheoTool 5.1.8 HerschelBulkley 真实动脉瘤血流 ReGN=420 rho=1050 tau0=0.0175 k=8.9721e-3 n=0.8601 eta0=0.15",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam",
+    "expected_ready": true
+  },
+  {
+    "id": "bp_037",
+    "prompt": "RheoTool 5.1.9 CarreauYasuda 黏性流体阻尼器 moving mesh rho=1000 eta0/nu0=100 etaInf/nuInf=0 lambda=0.0084033613 n=0.353 a=1.433",
+    "expected_channel": "v9-rheotool",
+    "expected_version": "v9",
+    "expected_solver": "rheoFoam",
+    "expected_ready": true
+  }
+]

@@ -1,0 +1,19 @@
+solver: buoyantFoam
+required_files:
+  - 0/U
+  - 0/p
+  - 0/p_rgh
+  - 0/T
+  - 0/alphat
+  - constant/g
+  - constant/momentumTransport
+  - constant/physicalProperties
+  - system/blockMeshDict
+  - system/controlDict
+  - system/fvSchemes
+  - system/fvSolution
+required_content:
+  - file: system/controlDict
+    must_contain: [buoyantFoam]
+forbidden_files:
+  - constant/constitutiveProperties

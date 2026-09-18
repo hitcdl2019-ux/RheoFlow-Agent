@@ -1,0 +1,8 @@
+{
+  "material": "blood",
+  "aliases": ["血液", "blood"],
+  "likely_behavior": ["generalized_newtonian", "shear_thinning"],
+  "candidate_models": ["CarreauYasuda"],
+  "business_questions": ["请说明血管尺度和剪切率范围。", "是否需要考虑脉动入口或非牛顿黏度曲线？"],
+  "typical_parameter_policy": {"allowed_only_with_user_confirmation": true, "requires_source": true}
+}

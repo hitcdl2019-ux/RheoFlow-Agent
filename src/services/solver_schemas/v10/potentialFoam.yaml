@@ -1,0 +1,13 @@
+solver: potentialFoam
+required_files:
+  - 0/U.orig
+  - 0/p.orig
+  - system/controlDict
+  - system/fvSchemes
+  - system/fvSolution
+required_content:
+  - file: system/controlDict
+    must_contain: [potentialFoam]
+forbidden_files:
+  - constant/constitutiveProperties
+  - 0/p_rgh

@@ -1,0 +1,17 @@
+ARG FOAMAGENT_BASE_IMAGE=foamagent-dual-openfoam:pytest-check
+FROM openfoam/openfoam10-paraview510:latest AS openfoam10
+
+FROM ${FOAMAGENT_BASE_IMAGE}
+
+USER root
+COPY --from=openfoam10 /opt/openfoam10 /opt/openfoam10
+RUN rm -rf /opt/Foam-Agent /home/openfoam/Foam-Agent
+COPY . /opt/Foam-Agent
+RUN ln -s /opt/Foam-Agent /home/openfoam/Foam-Agent
+COPY scripts/run_openfoam_channel.sh /usr/local/bin/run-openfoam-channel
+RUN chmod +x /usr/local/bin/run-openfoam-channel
+ENV FOAMAGENT_SKIP_UPDATE=1
+WORKDIR /opt/Foam-Agent
+
+# The inherited entrypoint may source v9 for an interactive shell, but runtime
+# commands never rely on it: the channel runner starts from an empty environment.

@@ -1,0 +1,68 @@
+# Foam-Agent User Requirement
+
+## Business Problem
+
+## Material and Phases
+- material:
+- phases:
+- observed behavior:
+- material knowledge source:
+- user confirmed assumptions:
+
+## Fluid / Material Properties
+- density:
+- dynamic_viscosity:
+- kinematic_viscosity:
+- property source: user_provided | literature_typical | estimated_with_user_approval
+- source reference:
+- user confirmed property assumptions:
+
+## Geometry
+- geometry type:
+- dimensions:
+- mesh source:
+
+## Flow Conditions
+- steady_or_transient:
+- inlet:
+- outlet:
+- wall:
+- free_surface:
+- turbulence: laminar | RANS model | unresolved
+- initial_condition:
+
+## Rheology
+- behavior:
+- constitutive_model:
+- parameters:
+  - etaS:
+  - etaP:
+  - lambda:
+  - alpha / epsilon / L2 / tau0 / k / n / a:
+- parameter source: user_provided | literature_typical | estimated_with_user_approval
+- source reference:
+
+## Time and Numerics
+- end_time:
+- time_step_or_maxCo:
+- output_interval:
+- numerical_stabilization:
+
+## Objectives
+-
+
+## Defaults Applied
+-
+
+## Assumptions Approved by User
+-
+
+## Missing / Unconfirmed Information
+- Must be empty before intake can issue a ready receipt.
+
+## Intake Rule
+If critical information is missing, `scripts/foamagent_intake.py` must return clarify before `src/main.py` is allowed to run.
+For Newtonian fluids, `parameters: none required` is invalid; provide at least `nu` and `rho` with source labels.
+If Re is above the laminar threshold and turbulence treatment is not confirmed, intake must return clarify.
+For rheology/model-fluid benchmarks, if `constitutive_model` is explicit and all required numeric parameters are provided with source labels, material-card lookup is not required. Material cards are only for translating business material names into candidate behavior/model/typical parameters.
+Use numeric assignments such as `etaS=0.01`, `etaP=0.99`, `lambda=1.0`; aliases `ηs`, `ηp`, and `λ` are accepted.

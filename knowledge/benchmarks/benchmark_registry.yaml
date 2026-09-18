@@ -1,0 +1,13 @@
+benchmarks:
+  - id: rude_giesekus_4to1_pnas2023_fig4
+    path: rude_giesekus_4to1_pnas2023_fig4
+    status: certified_local_passed
+    aliases:
+      - RUDE
+      - PNAS 2023 RUDE
+      - 10.1073/pnas.2304669120
+      - Giesekus 4:1 contraction
+    target:
+      channel: v9-rheotool
+      version: v9
+      solver: rheoFoam

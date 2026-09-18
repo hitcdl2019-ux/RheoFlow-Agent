@@ -1,0 +1,30 @@
+id: rude_giesekus_4to1_pnas2023_fig4
+required_target:
+  channel: "v9-rheotool"
+  version: "v9"
+  solver: "rheoFoam"
+run_acceptance:
+  blockMesh: "must_pass"
+  checkMesh: "warnings_allowed_for_high_aspect_ratio"
+  solver_end_time: 10
+  solver_log_must_contain: "End"
+  required_time_directories:
+    - "0"
+    - "2"
+    - "4"
+    - "6"
+    - "8"
+    - "10"
+postprocess_acceptance:
+  sampleDict: "must_pass"
+  required_outputs:
+    - "postProcessing/sampleDict/10/lBeforex0_U.xy"
+    - "postProcessing/sampleDict/10/lAfterx0_U.xy"
+    - "postProcessing/sampleDict/10/lBeforex0_tau.xy"
+    - "postProcessing/sampleDict/10/lAfterx0_tau.xy"
+recorded_local_result:
+  Ux_before_max: 1.30289833258
+  Ux_after_max: 1.30289885457
+  before_after_Ux_rms_diff: 2.2156964148793927e-06
+  before_after_Uy_rms_diff: 4.168790602284821e-06
+  all_point_U_relative_l2_rough: 0.0234992983929522

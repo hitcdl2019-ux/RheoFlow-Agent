@@ -1,0 +1,13 @@
+{
+  "material": "unknown_material",
+  "aliases": [],
+  "likely_behavior": [],
+  "candidate_models": [],
+  "business_questions": [
+    "该材料是否像水一样流动？",
+    "是否剪切越快越稀？",
+    "是否有回弹、拉丝、入口胀大或屈服行为？",
+    "是否有流变仪数据、厂家数据表、浓度或牌号？"
+  ],
+  "typical_parameter_policy": {"allowed_only_with_user_confirmation": true, "requires_source": true}
+}

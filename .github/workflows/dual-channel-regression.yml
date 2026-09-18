@@ -1,0 +1,45 @@
+name: Dual-channel OpenFOAM regression
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 18 * * *"
+
+jobs:
+  solver-regression:
+    runs-on: [self-hosted, linux, foamagent-dual-openfoam]
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit channel-isolated RAG metadata
+        env:
+          IMAGE: foamagent-dual-openfoam@sha256:c15f3b22d2bcc648b95ae0e2ef929bfb88723eb901b51de4e1b2719945650e5d
+        run: |
+          docker run --rm -v "$PWD:/workspace/repo" --entrypoint /bin/bash "$IMAGE" -lc \
+            'cd /workspace/repo && /opt/conda/envs/FoamAgent/bin/python scripts/audit_rag_metadata.py --output rag_inventory.json'
+      - name: Run offline workflow routing tests
+        env:
+          IMAGE: foamagent-dual-openfoam@sha256:c15f3b22d2bcc648b95ae0e2ef929bfb88723eb901b51de4e1b2719945650e5d
+        run: |
+          docker run --rm -v "$PWD:/workspace/repo" --entrypoint /bin/bash "$IMAGE" -lc \
+            'set -euo pipefail
+             PY=/opt/conda/envs/FoamAgent/bin/python
+             "$PY" -m pytest --version >/dev/null 2>&1 || "$PY" -m pip install --no-cache-dir pytest==8.3.5
+             cd /workspace/repo
+             "$PY" -m pytest -q tests/test_workflow_compiler.py tests/test_case_manifest.py'
+      - name: Run certified solver baselines
+        env:
+          IMAGE: foamagent-dual-openfoam@sha256:c15f3b22d2bcc648b95ae0e2ef929bfb88723eb901b51de4e1b2719945650e5d
+        run: ./scripts/run_dual_channel_regression.sh
+      - name: Upload regression log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dual-channel-regression-log
+          path: runs/dual-channel-regression/regression.log
+      - name: Upload RAG inventory
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rag-inventory
+          path: rag_inventory.json
